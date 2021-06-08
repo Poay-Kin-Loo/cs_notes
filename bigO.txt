@@ -71,10 +71,10 @@ increase in proportion to the input size.
 	
 		log n = log 9 ~ 3   ==> O(log n)
 		
-	Note: if we were looking for 8, we would found it after the first
+	Note: if we were looking for 8, we would find it after the first
 	split so "log 9 ~ 3" would not hold. But with big O in programming
 	we look at the worst case which means an element that is at the end
-	or beginning of a list.
+	or beginning of our sample list (like 3).
 		
  * O(n) - linear complexity
   
