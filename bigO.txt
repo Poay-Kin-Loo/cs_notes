@@ -1,0 +1,85 @@
+=====================================================================
+ 1. Overview
+=====================================================================
+
+Big O notation is used to describe efficiency of algorithms
+(time and space complexity) in relation to input size.
+
+Big O notation is NOT about an algorithm being "quick" or "slow".
+Rather it is about the rate of increase - how fast the time will
+increase in proportion to the input size.
+
+ Example
+ -------
+ The following for-loop has complexity O(n):
+
+	for(i=0; i<n; i++){
+		O(1) instruction1;
+		O(1) instruction2;
+	}
+
+ The following loops are also O(n):
+	
+	// O(n) + O(n) = O(2n) = O(n)
+	for(i=0; i<n; i++){
+		O(1) instruction1;
+	}
+	
+	for(i=0; i<n; i++){
+		O(1) instruction2;
+	}
+	
+ The single for-loop will run faster then the two separate ones
+ because it does n iterations only once. Complexity is the same
+ but not the run time.
+
+ Example
+ -------
+ Insertion sort has complexity O(n^2) whereas quick sort - O(n*log n).
+ O(n*log n) complexity is better than O(n^2). Yet, insertion sort is
+ faster than quick sort for small input.
+
+=====================================================================
+ 2. Different Complexities
+=====================================================================
+
+ * O(1) - constant complexity
+
+   No matter how large is the input, it always takes one operation/
+   will execute in the same time, e.g.
+   
+		print x
+		x + y
+		if (x < 5) { ... }
+		
+ * O(log n) - logarithmic complexity (assume log base is 2)
+ 
+   If we double the input, only one extra operation/iteration will be
+   done. Or in other words, on each iteration we halve the dataset
+   (and we end up doing it log n time only).
+   
+   Let's use binary search to find 3 in:
+   
+		{1, 3, 5, 7, 8, 9, 11, 12, 15}
+		
+		0) start with the full list (n = 9, indices 0 to 8) 
+		1) split the list in half (n = 9/2 = 4, indices 0 to 4)
+		2) split the list in half (n = 4/2 = 2, indices 0 to 2)
+		3) split the list in half (n = 2/2 = 1, indices 0 to 1)
+		
+	We split n 3 times to find 3 in the list:
+	
+		log n = log 9 ~ 3   ==> O(log n)
+		
+ * O(n) - linear complexity
+  
+   The number of operations increases proportionally to the size of 
+   input, e.g. double the size of input and the number of operations
+   will double too.
+   
+   Good example of O(n) is a simple for-loop:
+   
+		for(i=0; i<n; i++){
+			print i;
+		}
+		
