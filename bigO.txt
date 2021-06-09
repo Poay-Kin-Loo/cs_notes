@@ -163,19 +163,19 @@ increase in proportion to the input size.
 	For n = 3, we add an extra level and double the number of executions: 
 	
 					fib(3)					
-					/	\
-				fib(2)  fib(1)				
+				       /      \
+				   fib(2)     fib(1)				
 				
 	For n = 5, we add more two more levels (one not fully complete) and
 	the	number of executions in general doubles per level:
 	
 					fib(5)					
-					/	\
-				fib(4)	fib(3)				
-				/	|     |	  \
-		  fib(3) fib(2) fib(2) fib(1)
-          /    \
-        fib(2)	fib(1)	  
+				       /      \
+				  fib(4)     fib(3)				
+				 /    |      |	  \
+		             fib(3) fib(2) fib(2) fib(1)
+                             /    \
+                        fib(2)	fib(1)	  
 			
  * O(n!) - factorial complexity
  
