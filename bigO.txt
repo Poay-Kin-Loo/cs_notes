@@ -197,3 +197,15 @@ follows:
 =====================================================================
  4. Examples
 =====================================================================
+
+ * Example 1 - O(1)
+ 
+	foo(int array) {
+	  print array[0];
+ 	}
+   
+   Complexity is constant because printing a single value is O(1).
+   It does not matter how many elements we have in array; we print only
+   one of them.
+   
+   
