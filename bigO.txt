@@ -219,6 +219,7 @@ follows:
    operation for each element, thus doing it n times, e.g.
      - for array with 5 elements, print is executed 5 times
      - for array with 6 elements, print is executed 6 times
+     
    The number of operations increases proportionally to the input, thus
    complexity is O(n).
  
@@ -236,6 +237,7 @@ follows:
      - for array with 6 elements, print i in {0, 2, 4}
      - for array with 12 elements, print i in {0, 2, 4, 6, 8, 10}
      - for array with 24 elements, print i in {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22}
+     
    Every time we double the number of elements, we double the number of
    executed print instructions. The number of operations increases
    proportionally to the input, thus complexity is O(n).
@@ -254,6 +256,7 @@ follows:
       - for array with 8 elements, print i in {1, 2, 4}
       - for array with 16 elements, print i in {1, 2, 4, 8}
       - for array with 32 elements, print i in {1, 2, 4, 8, 16}
+      
     Every time we double the number of elements, we add only one extra
     print instruction. The number of prints equals log N:
     
@@ -272,17 +275,57 @@ follows:
 	}
 
     Printing a single value is O(1) and adding two numbers is O(1). Thus,
-    the inside of nested for-loop is O(1). However, the nested for-loops
-    make it a bit more complex.
+    the inside of nested for-loop is O(1). However, we repeat it in a nested
+    for-loop.
     
     The external for-loop runs n times. The internal for-loop runs also n
     times but it does it for every run of the external loop. E.g. for an
-    array with 2 elements we get 4 runs in total:
+    array with 2 elements for each i, the internal loop is run twice:
         (i = 0, j = 0)
 	(i = 0, j = 1)
 	(i = 1, j = 0)
 	(i = 1, j = 1)
 	
-    For an array with 3 elements, the number of execustion will be 9. Thus,
-    the number of executions if n^2 and the complexity is O(n^2).
+    The total number of runs is 4 (2^2). For an array with 3 elements for 
+    each i, the internal loop is run thrice:
+    	(i = 0, j = 0)
+	(i = 0, j = 1)
+	(i = 0, j = 2)
+	(i = 1, j = 0)
+	...
+	(i = 2, j = 2)
+	
+    The total number of executions is 9 (3^2). So the number of executions
+    is n^2 and thus, the complexity is O(n^2).
     
+  * Example 6 - O(log(log n))
+  
+  	foo(int array) {
+	  for(i = 2; i<array.size(); i=i*i){
+	    print array[i];
+	  }
+	}
+
+    Printing a single element of array is O(1). However, we repeat this only
+    a handful of times:
+      - for an array with 2 elements, i = {} (0 no runs)
+      - for an array with 4 elements, i = {2} (1 run) 
+      - for an array with 8 elements, i = {2, 4} (2 runs)
+      - for an array with 16 elements, i = {2, 4} (2 runs)
+      - for an array with 32 elements, i = {2, 4, 16} (3 runs)
+      - for an array with 64 elements, i = {2, 4, 16} (3 runs)
+      - for an array with 128 elements, i = {2, 4, 16} (3 runs)
+      - for an array with 256 elements, i = {2, 4, 16} (3 runs)
+      - for an array with 512 elements, i = {2, 4, 16, 256} (4 runs)
+      
+    To come up with the complexity, we only need to have a closer look at 
+    arrays with 2, 4, 16 and 256 elements:
+    	n = 2   = 2^1	= 2^(2^0)	k = 0 (number of runs)
+	n = 4   = 2^2	= 2^(2^1)	k = 1
+	n = 16  = 2^4	= 2^(2^2)	k = 2
+	n = 256 = 2^8	= 2^(2^3)	k = 3
+
+    This gives us:
+    	n = 2^(2^k)	=> log n = 2^k	=> log(log n) = k
+
+    Thus, the complexity is log(log n).
