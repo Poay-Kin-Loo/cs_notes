@@ -227,6 +227,7 @@ follows:
   	foo(int array) {
 	  for(i=0; i<array.size(); i+=2){
 	    print array[i];
+	  }
 	}
 
    Printing a single element of array is O(1). However, we repeat this
@@ -238,3 +239,24 @@ follows:
    Every time we double the number of elements, we double the number of
    executed print instructions. The number of operations increases
    proportionally to the input, thus complexity is O(n).
+
+  * Example 4 - O(log n)
+  
+  	foo(int array) {
+	  for(i=1; i<array.size(); i*=2) {
+	    print array[i];
+	  }
+	}
+	
+    Printing a single element of array is O(1). However, we repeat this
+    operation for only a number of elements, e.g.
+      - for array with 5 elements, print i in {1, 2, 4}
+      - for array with 8 elements, print i in {1, 2, 4}
+      - for array with 16 elements, print i in {1, 2, 4, 8}
+      - for array with 32 elements, print i in {1, 2, 4, 8, 16}
+    Every time we double the number of elements, we add only one extra
+    print instruction. The number of prints equals log N:
+    
+    	log 8 = 3	log 16 = 4	log 32 = 5
+	
+    Thus, complexity is O(log n).
