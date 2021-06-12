@@ -372,8 +372,38 @@ follows:
 	
     Thus, the total number of executions is 2^n and as a result the complexity
     is O(2^n).
+
+  * Example 8 - O(n)
+  
+  	sum(Node node) {
+	  if (node == null) {
+	    return 0;
+	  }
+	  return sum(node.left) + node.val + sum(node.right);
+	}
 	
-		
+   The if-statement has is O(1). However, the big O is driven here by the
+   two recursive calls.
+   
+   For a tree with 1 node, the number of recursive calls i is 2 because we
+   need to check the left and right child (which do not exist):
+   			()		n = 1, i = 2
+
+   For a tree with 2 nodes, the number of recursive calls i is 4 because we 
+   check the left and right child for each node in the tree (even if a child 
+   is null):
+   			()		n = 2, i = 4
+		       /
+		      ()
+	
+   For a tree with 3 nodes, the number of recursive calls i is 6:
+   			()		n = 3, i = 6
+		       /  \
+		     ()    ()
+
+   We can see that the number of recursive calls i = 2 * n. Thus, the complexity
+   is O(2*n) which is simply O(n).
+   
 	   
     
     
