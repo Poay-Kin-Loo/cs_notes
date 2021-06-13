@@ -404,6 +404,34 @@ follows:
    We can see that the number of recursive calls i = 2 * n. Thus, the complexity
    is O(2*n) which is simply O(n).
    
+  * Example 9 - O(a/b)
+  
+  	foo div(int a, int b) {
+	  int count = 0;
+	  int sum = b;
+	  
+	  while(sum <= a) {
+	    sum += b;
+	    count++;
+	  }
+	  return count;
+	}
+	
+   The number of times while-loop gets executed depends on the value of a and b:
+   	a < b		sum = b + 0 * b		iter = 0
+	a = b		sum = b + 1 * b		iter = 1
+	a = 2b		sum = b + 2 * b		iter = 2
+	a = 3b		sum = b + 3 * b		iter = 3
+	
+   In other words:
+   	a = iter * b	=> iter = a / b
+	
+   The number of iterations can be expressed as (a / b) and each command within the
+   loop (as well as outside of it) is O(1), thus the complexity is O(a/b).
+	
+   
+   
+   
 	   
     
     
