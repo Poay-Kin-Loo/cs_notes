@@ -489,6 +489,30 @@ follows:
     Thus, the complexity is:
       - O(2 * n * n * n!) = O(n^2 * n!) (older Java)
       - O((n + n^2) * n * n!) = O(n^2 * n * n!) = O(n^3 * n!) (newer Java)
+      
+  * Example 11 - O(2^n)
+  
+    	fib(int n) {
+      	  if(n <= 0) {
+            return 0;
+          } else if(n == 1) {
+            return 1;
+          }
+          return fib(n-1) + fib(n-2);
+        }
+    
+    Let's have a look at execution tree for various n:
+    	n = 1		fib(1)
+	
+	n = 2		fib(2)
+	               /      \
+		    fib(1)    fib(0)
+		    
+        n = 3		fib(3)
+	               /      \ 
+		    fib(2)    fib(1)
+		   /     \ 
+		fib(1)   fib(0)
     	
     
     
