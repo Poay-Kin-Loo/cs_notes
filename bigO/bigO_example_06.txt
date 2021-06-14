@@ -1,0 +1,33 @@
+=====================================================================
+ Example 6 - O(log(log n))
+=====================================================================
+
+  foo(int array) {
+	  for(i = 2; i<array.size(); i=i*i){
+	    print array[i];
+	  }
+	}
+
+Printing a single element of array is O(1). However, we repeat this only
+a handful of times:
+  - for an array with 2 elements, i = {} (0 no runs)
+  - for an array with 4 elements, i = {2} (1 run) 
+  - for an array with 8 elements, i = {2, 4} (2 runs)
+  - for an array with 16 elements, i = {2, 4} (2 runs)
+  - for an array with 32 elements, i = {2, 4, 16} (3 runs)
+  - for an array with 64 elements, i = {2, 4, 16} (3 runs)
+  - for an array with 128 elements, i = {2, 4, 16} (3 runs)
+  - for an array with 256 elements, i = {2, 4, 16} (3 runs)
+  - for an array with 512 elements, i = {2, 4, 16, 256} (4 runs)
+      
+To come up with the complexity, we only need to have a closer look at 
+arrays with 2, 4, 16 and 256 elements:
+  n = 2   = 2^1	= 2^(2^0)	k = 0 (number of runs)
+	n = 4   = 2^2	= 2^(2^1)	k = 1
+	n = 16  = 2^4	= 2^(2^2)	k = 2
+	n = 256 = 2^8	= 2^(2^3)	k = 3
+
+This gives us:
+ 	n = 2^(2^k)	=> log n = 2^k	=> log(log n) = k
+
+Thus, the complexity is log(log n).
