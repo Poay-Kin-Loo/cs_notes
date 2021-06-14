@@ -1,0 +1,57 @@
+=====================================================================
+ Example 10 - O(n^2 * n!)
+===================================================================== 
+
+  void permutation(String str) {
+	  permutation(str, "");
+	}
+	
+	void permutation(String str, String prefix) {
+	  if(str.length() == 0) {
+	    System.out.println(prefix);
+	  } else {
+	    for(int i=0; i<str.length(); i++) {
+	      String rem = str.substring(0, i) + str.substring(i+1);
+	      permutation(rem, prefix + str.charAt(i));
+	    }
+	  }
+	}
+   
+This is a tricky one because of recursion and for-loop mixed together.
+     
+To get the number of recursive calls, let's have a look at what happens to "abcd"
+(note: we are tracking here only values of rem, ignoring prefix):
+                   					abcd
+		                /      /    \      \
+			            bcd     acd    abd     abc
+            /    /   \   / | \  / | \   / | \
+          cd    bd   bc   ...    ...     ...
+         /  \  /  \  / \
+		    d    c  ...  ...
+        |    |
+	     ""   ""
+    
+  The depth of tree is 4 which is the same as the length of our string. The number
+  of nodes increases for each level:
+    	l = 0		nodes = 1	
+	    l = 1		nodes = 4	(4 * 1)	
+	    l = 2		nodes = 12 	(4 * 3 * 1)
+	    l = 3		nodes = 24 	(4 * 3 * 2 * 1) = 4!
+
+  The leaves represent the base calls and, as we can see for n = 4, the total number
+  of leaves is n!. Each base call does System.out.println which needs to loop over
+  each character to print a string, so it will require n operations. Thus, we are 
+  expecting n * n! operations.
+    
+  To get to a leave we need n recursive calls, thus the total number of recursive
+  calls is n * n!.
+    
+  Finally, we need to consider the substring calls in the for-loop. They happen the 
+  same number of times as recursive calls (n*n!) and each requires n opertions, thus
+  we get 2 * n * n * n!.
+    
+  Adding this all up:
+    	(n * n!) + (n * n!) + (2 * n * n * n!) = (n * n!) * (2 + 2 * n)
+	
+  Thus:
+  	O((n * n!) * (2 + 2 * n)) = O((n * n!) * 2 * n) = O(n * n * n!) = O(n^2 * n!)
