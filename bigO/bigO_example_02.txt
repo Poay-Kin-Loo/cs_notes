@@ -1,0 +1,17 @@
+=====================================================================
+ Example 2 - O(n)
+=====================================================================
+
+  foo(int array) {
+	  for(i=0; i<array.size(); i++) {
+	    print array[i];
+	  }
+  }
+   
+Printing a single element of array is O(1). However, we repeat this
+operation for each element, thus doing it n times, e.g.
+   - for array with 5 elements, print is executed 5 times
+   - for array with 6 elements, print is executed 6 times
+     
+The number of operations increases proportionally to the input, thus
+complexity is O(n).
