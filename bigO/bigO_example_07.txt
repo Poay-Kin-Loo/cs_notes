@@ -1,0 +1,44 @@
+=====================================================================
+ Example 7 - O(2^n)
+=====================================================================
+
+  foo(int n){
+	  if (n <= 1) {
+	    return 1;
+	  }
+	  return foo(n-1) + foo(n-1);
+	}
+	
+The if-statements is O(1). However, the big O is driven here by the
+two recursive calls.
+    
+If n = 1, there is only one call:
+    	 foo(1)			    1 node
+			
+If n = 2, we add an extra level to the execution tree:
+ 			 foo(2)			    1 node
+			/     \
+   foo(1)    foo(1)		2 nodes
+		    
+If n = 3, we add another level:
+    			foo(3)			          1 node
+		     /      \
+	 foo(2)        foo(2)		      2 nodes
+	/     \        |     \
+foo(1)  foo(1)  foo(1)  foo(1)	4 nodes
+    
+The depth of the execution tree is n and the number of nodes 
+on each level i is 2^i (i = {0, 1, ..., n-1}). Thus, the total number
+of nodes is:
+ 	n = 1, i = {0} 		=> 2^0
+	n = 2, i = {0, 1}	=> 2^0 + 2^1
+	n = 3, i = {0, 1, 2}	=> 2^0 + 2^1 + 2^2
+	
+Thus, we can express the number of executions as a geometric series:
+   	1 * 2^0 + 1 * 2^1 + 1 * 2^2 + ... + 1 * 2^(n-1)
+	
+The sum of our geometric series can be expressed as:
+	  (1 - 2^n)/(1 - 2) = (1 - 2^n) * (-1) = 2^n - 1
+	
+Thus, the total number of executions is 2^n and as a result the
+complexity is O(2^n).
