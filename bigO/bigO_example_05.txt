@@ -1,0 +1,35 @@
+=====================================================================
+ Example 5 - O(n^2)
+=====================================================================    
+
+  foo(int array) {
+	  for(i=0; i<array.size(); i++) {
+	    for(j=0; j<array.size(); j++) {
+	      print array[i] + array[j];
+	    }
+	  }
+	}
+
+Printing a single value is O(1) and adding two numbers is O(1). Thus,
+the inside of nested for-loop is O(1). However, we repeat it in a nested
+for-loop.
+    
+The external for-loop runs n times. The internal for-loop runs also n
+times but it does it for every run of the external loop. E.g. for an
+array with 2 elements for each i, the internal loop is run twice:
+  (i = 0, j = 0)
+	(i = 0, j = 1)
+	(i = 1, j = 0)
+	(i = 1, j = 1)
+	
+The total number of runs is 4 (2^2). For an array with 3 elements for 
+each i, the internal loop is run thrice:
+ 	(i = 0, j = 0)
+	(i = 0, j = 1)
+	(i = 0, j = 2)
+	(i = 1, j = 0)
+	...
+	(i = 2, j = 2)
+	
+The total number of executions is 9 (3^2). So the number of executions
+is n^2 and thus, the complexity is O(n^2).
