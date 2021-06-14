@@ -1,0 +1,47 @@
+=====================================================================
+ Example 11 - O(2^n)
+===================================================================== 
+
+  fib(int n) {
+    if(n <= 0) {
+      return 0;
+    } else if(n == 1) {
+      return 1;
+    }
+    return fib(n-1) + fib(n-2);
+  }
+    
+Let's have a look at execution tree for various n:
+    	n = 1		    fib(1)
+	
+	    n = 2		    fib(2)
+	               /      \
+		          fib(1)    fib(0)
+		    
+      n = 3		    fib(3)
+	               /      \ 
+		          fib(2)    fib(1)
+		         /     \ 
+		      fib(1)   fib(0)
+	
+	    n = 4		    fib(4)
+	               /      \
+		        fib(3)       fib(2)
+		        /     \       |     \
+	    fib(2)   fib(1)   fib(1)  fib(0)
+	   /     \
+	 fib(1)  fib(0)
+
+In general, each new level has twice the number of
+branches as the previous one:
+     	0 => 1		2^0 = 1
+	    1 => 2		2^1 = 2
+	    2 => 4		2^2 = 4
+	    3 => 8		2^3 = 8
+	    ...
+
+So the total number of executions is:
+     	2^0 + 2^1 + 2^2 + ... + 2^(n-1) = 2^n
+	
+And as a result the complexity is O(2^n).
+    	
