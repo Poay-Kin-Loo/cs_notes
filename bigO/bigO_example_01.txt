@@ -1,0 +1,10 @@
+=====================================================================
+ Example 1 - O(1)
+=====================================================================
+
+  foo(int array, int idx) {
+	  print array[idx];
+ 	}
+   
+It does not matter how many elements we have in array; we print only
+one element. Thus, the complexity is O(1).
