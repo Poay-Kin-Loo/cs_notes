@@ -1,0 +1,17 @@
+=====================================================================
+ One-dimensional Array
+=====================================================================
+
+1. Features:
+  - it has a fixed size
+  - it stores elements of the same type
+  - it uses an index to access elements
+  - it is stored in a continuous block of memory
+  
+2. Operations:
+  - indexing    -> O(1)
+  - searching   -> O(n)
+  
+  No inserting/deleting is possible since we can modify elements but
+  we cannot add or delete them. So once an array is defined, it size
+  cannot be changed.
