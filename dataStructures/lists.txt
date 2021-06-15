@@ -1,0 +1,24 @@
+=====================================================================
+ Singly Linked List
+=====================================================================
+
+1. Features:
+  - it consists of a collections of nodes
+  - each node stores data and a pointer to the next node
+  - it does not have a fixed size - we can add and remove elements
+  - it is NOT stored in a continuous block of memory
+  
+  [ 12 | +--]---->[ 5 | +--]---->[ 32 | +--]---->[X]
+  
+2. Operations:
+   - indexing                     -> N/A
+   
+   - insertion                    -> O(1)
+     (ex. look up)
+     
+   - deletion                     -> O(1)
+     (ex. look up)
+     
+   - searching                    -> O(n)
+   
+   NOTE:
