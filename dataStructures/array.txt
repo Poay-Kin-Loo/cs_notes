@@ -1,5 +1,5 @@
 =====================================================================
- One-dimensional Array
+ Array
 =====================================================================
 
 1. Features:
@@ -9,9 +9,48 @@
   - it is stored in a continuous block of memory
   
 2. Operations:
-  - indexing    -> O(1)
-  - searching   -> O(n)
+  - indexing                            -> O(1)
+  
+  - searching                           -> O(n)
   
   No inserting/deleting is possible since we can modify elements but
   we cannot add or delete them. So once an array is defined, it size
   cannot be changed.
+  
+=====================================================================
+ Dynamic Array
+=====================================================================
+
+1. Features:
+  - it can grow/shrink (size gets increased if needed - usually x2)
+  - it stores elements of the same type
+  - it uses and index to access elements
+  - it is stored in a continuous block of memory
+  
+  NOTE: We init the array with more space than needed. Elements are
+  stored one by one at the beginning and the rest stays reserved.
+  There are no gaps between values, e.g.
+  
+    | 1 | 2 | 3 | 4 |     -> ok
+    | 1 | - | 2 | 3 |     -> not ok
+  
+2. Operations:
+  - indexing                            -> O(1)
+  
+  - inserting at the beginning          -> O(n)
+    (need to move all elements by 1)
+    
+  - inserting in the middle             -> O(n)
+    (need to move all elements by 1) 
+    
+  - inserting at the end                -> O(1)
+  
+  - deleting at the beginning           -> O(n)
+    (need to move all elements by 1)
+    
+  - deleting in the middle              -> O(n)
+    (need to move all elements by 1)
+    
+  - deleting at the end                 -> O(1)
+  
+  - searching                           -> O(n)
