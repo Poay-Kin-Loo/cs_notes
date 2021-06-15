@@ -32,7 +32,7 @@
   There are no gaps between values, e.g.
   
     | 1 | 2 | 3 | 4 |     -> ok
-    | 1 | - | 2 | 3 |     -> not ok
+    | 1 |   |   | 2 |     -> not ok
   
 2. Operations:
   - indexing                            -> O(1)
