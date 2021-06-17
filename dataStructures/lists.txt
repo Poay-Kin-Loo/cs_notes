@@ -5,8 +5,9 @@
 1. Features:
   - it consists of a collections of nodes
   - each node stores data and a pointer to the next node
-  - it does not have a fixed size - we can add and remove elements
+  - it does not have a fixed size - we can easily add and remove elements
   - it is NOT stored in a continuous block of memory
+  - it can be traversed only one way
   
   [ 12 | +--]---->[ 5 | +--]---->[ 32 | +--]---->[X]
   
@@ -14,11 +15,22 @@
    - indexing                     -> N/A
    
    - insertion                    -> O(1)
-     (ex. look up)
      
    - deletion                     -> O(1)
-     (ex. look up)
      
    - searching                    -> O(n)
    
-   NOTE:
+   NOTE: insertion and deletion operations do not include the lookup of
+   position where we are adding/deleting a node. If you include lookup,
+   then the complexity is O(n).
+   
+=====================================================================
+ Doubly Linked List
+=====================================================================
+
+1. Features:
+  - it consists of a collections of nodes
+  - each node stores data and pointers to the previous and the next node
+  - it does not have a fixed size - we can easily add and remove elements
+  - it is NOT stored in a continuous block of memory
+  - it can be traversed both ways
