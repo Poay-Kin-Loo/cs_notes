@@ -6,3 +6,4 @@ A small repository of notes about various computer science concepts.
   * [Data Structures](dataStructures)
     * [Arrays](dataStructures/arrays.txt)
     * [Lists](dataStructures/lists.txt) 
+    * [Queues](dataStructures/queues.txt)
