@@ -34,3 +34,18 @@
   - it does not have a fixed size - we can easily add and remove elements
   - it is NOT stored in a continuous block of memory
   - it can be traversed both ways
+
+  [X]<----[--+ | 12 | +--]<---->[--+ | 5 | +--]<---->[--+ | 32 | +--]<---->[X]
+  
+2. Operations:
+   - indexing                     -> N/A
+   
+   - insertion                    -> O(1)
+     
+   - deletion                     -> O(1)
+     
+   - searching                    -> O(n)
+   
+   NOTE: insertion and deletion operations do not include the lookup of
+   position where we are adding/deleting a node. If you include lookup,
+   then the complexity is O(n).
