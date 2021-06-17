@@ -1,5 +1,5 @@
 =====================================================================
- Queues
+ Simple Queue
 =====================================================================
 
 1. Features:
@@ -23,13 +23,26 @@
 2. Operations:
    - indexing                     -> N/A
    
-   - insertion (enqueue)          -> O(1)
+   - enqueue                      -> O(1)
    
-   - deletion (dequeue)           -> O(1)
+   - dequeue                      -> O(1)
    
    - search                       -> O(n)
-   
+  
+  NOTE: Enqueue is about adding an element to the end of the queue.
+  To insert an element at any other position, we would need to use an
+  additional queue and copy the data. So complexity would be O(n).
+  
+  NOTE: Dequeue is about removing the element from the front of the queue.
+  To remove an element from any other position, we would need to use
+  an addtional queue and copty the data. So complexity would be O(n).
+  
   NOTE: Peek is a queue operation that returns the value of the next 
   element to be dequeue without dequeueing it.
 
+=====================================================================
+ Circular Queue
+=====================================================================
+
+1. Features:
   
