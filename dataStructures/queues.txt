@@ -1,0 +1,35 @@
+=====================================================================
+ Queues
+=====================================================================
+
+1. Features:
+  - it is a list of elements of similar type
+  - it is a FIFO (first in, first out) structure
+  - it does not have a fixed size
+  - it is NOT stored in a continuous block of memory
+  
+  [12][10][4][3][9][7]
+   ^                ^
+   front/head       end/tail
+  
+  If we want to add 5 to the queue, it would be added after 7.
+  
+  If we want to remove 4, first we need to remove 12 and then 10.
+  
+  NOTE: Queues can be implemented using singly-linked list (with a small
+  modification - we need to track the last element of the list) or using 
+  doubly-linked lists .
+
+2. Operations:
+   - indexing                     -> N/A
+   
+   - insertion (enqueue)          -> O(1)
+   
+   - deletion (dequeue)           -> O(1)
+   
+   - search                       -> O(n)
+   
+  NOTE: Peek is a queue operation that returns the value of the next 
+  element to be dequeue without dequeueing it.
+
+  
